@@ -36,4 +36,3 @@ Test Steps:
 1.	Do not hardcode access-token, access-token should be retrieved from dynamic server response after login.
 3.	Make HTTP POST request call to "/api/subject/1681277794575765504/analysis_session"
 4.	Assert analysisSessionId should not be None
-![image](https://user-images.githubusercontent.com/89505386/131060017-84250f6d-e345-419b-84a0-2bc9dbbf1956.png)
