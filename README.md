@@ -22,9 +22,13 @@ I have listed the form data below:
 
 Test 1. Web Automation:
 1.	Successfully automate manual steps by using selenium and page object model.
-•	Using pycharm 
-•	Pip install selenium 
-•	
+* First I began by installing selenium (pip install selenium) since the external liberaries are needed 
+* Chrome webdriver is needed. The appropriate webdriver can be found here: (https://chromedriver.chromium.org/downloads)
+* Config.py file was created where URL and username/password for the login page were stored
+* When main.py is executed, first the chrome browser is generated and browser begins to load https://clarity.dexcom.com/
+* Next, https://clarity.dexcom.com/users/auth/dexcom_sts is called which loads the login page.
+* The username and password fields are filled and finally the submit button is pressed. 
+
 2.	Code completion in python is mandatory.
 
 Test 2. API Automation:
@@ -32,7 +36,11 @@ For this test, Python request library will be used.
 
 Test Steps:
 1.	Start with a GET call to https://clarity.dexcom.com
-2.	Login with username and password codechallenge / Password123
-1.	Do not hardcode access-token, access-token should be retrieved from dynamic server response after login.
+* Simply using "session.get" was able to make a GET request which returns 200 code.
+2.	Login with username and password codechallenge / Password123 (Do not hardcode access-token, access-token should be retrieved from dynamic server response after login).
+* First used "session.get" to call "https://clarity.dexcom.com/users/auth/dexcom_sts". 
+* Next, using "session.get(url).url" I was able to get the URL which contains the "signin" parameter. "signin" value changes dynamically. 
+* Next, post data which include username, password and idsrv.xsrf are passed in with the URL from the previous step. 
+* Using "session.post" POST request is made to login. 
 3.	Make HTTP POST request call to "/api/subject/1681277794575765504/analysis_session"
 4.	Assert analysisSessionId should not be None
