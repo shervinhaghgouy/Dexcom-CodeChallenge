@@ -43,4 +43,16 @@ Test Steps:
 * Next, post data which include username, password and idsrv.xsrf are passed in with the URL from the previous step. 
 * Using "session.post" POST request is made to login. 
 3.	Make HTTP POST request call to "/api/subject/1681277794575765504/analysis_session"
+* Base url is "https://clarity.dexcom.com" 
+* next, we add the "/api/subject/1681277794575765504/analysis_session" to the base URL 
+* I was able to find access-token after the login step. Access token looks something like this `eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwczovL3N3ZWV0c3BvdGRpYWJldGVzLmNvbSIsInN1YiI6IlN3ZWV0c3BvdCIsImlhdCI6MTYzMDExMTQwNiwiY29uc2VudFBlcm1pc3Npb24iOiJsaW5rZWRTdWJqZWN0cyIsImRleGNvbUlkIjoiMjgzOWNkZmQtZWI1NC00MWU4LWI5YmYtYTA4OGUwODhmMzI1IiwiZXhwIjoxNjMwMTk3ODA2LCJyb2xlIjoiT3duZXIiLCJzdWJqZWN0SWQiOiIxNjgxMjc3Nzk0NTc1NzY1NTA0In0.HqVrCNUIFPQQr1OoXXBDddQKqEv12zMBsJp19ha510GtOXsr-bNOx9zjGcpHBwyo20qYR_x8QtlGDigNfsm5hhlOFXKvE8RtMnp1BSTEWnORFpHcKgiOHmg9WoMbiHx7sm6vbfnZnOlxGh5EI_xmykwyug9pQUokqkhmJmaNsEukx0M7eiofc6qqyt5TJu0TXA_sqj2xYuln0z8JVGMQ58FAXYut8fPB0XOlSSv0L4YDPHrj9NDLgP6XJ1Ki_PT-VWi5NRJI2SaG4MujzE0RdIBOIbdTYSZPq6h5AwDHEmkoCCioNMjyt_-N5Tn4s7ULuKgb2BT3dVjJFB0EuA_Hpw`
+* Using POSTMAN I used that access token to retrieve the data. The response is shown below: 
+` 
+{
+    "analysisSessionId": "1709295778795642880",
+    "dateTime": "2021-08-28T00:44:43.379Z",
+    "subjectId": "1681277794575765504"
+}
+`
+* As you can see "analysisSessionId" is not null. 
 4.	Assert analysisSessionId should not be None
