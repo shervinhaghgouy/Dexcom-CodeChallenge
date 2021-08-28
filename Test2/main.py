@@ -2,8 +2,6 @@ import requests
 
 from config import USERNAME, PASSWORD
 
-from bs4 import BeautifulSoup
-
 with requests.session() as session:
 
     #Step 1: Start with a GET call
@@ -30,6 +28,7 @@ with requests.session() as session:
     print(step_two.content)
 
     #Step 3: make HTTP POST request call to "/api/subject/1681277794575765504/analysis_session"
-    base_url = 'https://uam1.dexcom.com/api/subject/1681277794575765504/analysis_session'
+    base_url = 'https://clarity.dexcom.com/api/subject/1681277794575765504/analysis_session'
+    # need acces token -> could not find this token. Used POSTMAN to verify by manually obtaining the access token. Please refer to README page for POSTMAN results. 
     api_request = session.post(base_url, data=login_data)
     print(api_request.content)
