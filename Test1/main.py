@@ -18,7 +18,7 @@ def navigate_to_login():
 def input_username_password():
     button = driver.find_element_by_id("username")
     button.send_keys(Config.USERNAME)
-    button.send_keys(Keys.ENTER)
+ 
     button = driver.find_element_by_id("password")
     button.send_keys(Config.PASSWORD)
     button.send_keys(Keys.ENTER)
