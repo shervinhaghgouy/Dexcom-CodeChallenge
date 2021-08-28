@@ -8,7 +8,7 @@ Manual steps
 * In this step, we simply navigate to the URL above.  
     
 2.	Click "Dexcom CLARITY for Home Users"
-* When the click on "Dexcom CLARITY for Home Users", browser will send GET request to https://clarity.dexcom.com/users/auth/dexcom_sts which in responce will give a 302 status code. This is a redirect to the following link: https://uam1.dexcom.com/identity/connect/authorize?client_id=DAEC20AC-9626-4B0E-94B5-B674E298F51E&prompt=&redirect_uri=https%3A%2F%2Fclarity.dexcom.com%2Fusers%2Fauth%2Fdexcom_sts%2Fcallback&response_type=code&scope=openid+offline_access&state=af1b23ba4fdb1d3b7df7a2521c2b490afcdb5767a430ee72&ui_locales=en-US This is also a redirect to link with a "signin" parameter. 
+* When clicking on "Dexcom CLARITY for Home Users", browser will send GET request to https://clarity.dexcom.com/users/auth/dexcom_sts which in responce will give a 302 status code. This is a redirect to the following link: https://uam1.dexcom.com/identity/connect/authorize?client_id=DAEC20AC-9626-4B0E-94B5-B674E298F51E&prompt=&redirect_uri=https%3A%2F%2Fclarity.dexcom.com%2Fusers%2Fauth%2Fdexcom_sts%2Fcallback&response_type=code&scope=openid+offline_access&state=af1b23ba4fdb1d3b7df7a2521c2b490afcdb5767a430ee72&ui_locales=en-US This is also a redirect to link with a "signin" parameter. 
     
 3.	Give the username/password: codechallenge / Password123 in the login window
 * In this step we enter the username and password parameters that will be used for the POST request.
@@ -40,7 +40,7 @@ Test Steps:
 2.	Login with username and password codechallenge / Password123 (Do not hardcode access-token, access-token should be retrieved from dynamic server response after login).
 * First used "session.get" to call "https://clarity.dexcom.com/users/auth/dexcom_sts". 
 * Next, using "session.get(url).url" I was able to get the URL which contains the "signin" parameter. "signin" value changes dynamically. 
-* Next, post data which include username, password and idsrv.xsrf are passed in with the URL from the previous step. 
+* Post data which include username, password and idsrv.xsrf are passed in with the URL from the previous step. 
 * Using "session.post" POST request is made to login. 
 3.	Make HTTP POST request call to "/api/subject/1681277794575765504/analysis_session"
 * Base url is "https://clarity.dexcom.com" 
